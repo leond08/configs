@@ -1,0 +1,10 @@
+coins:
+- currency: 1
+  time: 6
+  unit: minutes
+- currency: 5
+  time: 1
+  unit: hour
+- currency: 10
+  time: 2
+  unit: hour
