@@ -9,8 +9,10 @@ directory: packages/captive/
 install_directory: /etc/pikonek/packages/captive/
 enable: true
 init_script: init.d/S70pikonekcaptive
+init_fw_script: init.d/S70pikonekcaptivefw
 repository: https://github.com/leond08/packages.git
 exec: /etc/init.d/S70pikonekcaptive
+exec_fw: /etc/init.d/S70pikonekcaptivefw
 interface:
 - name: eth1
 fw_destroy:
