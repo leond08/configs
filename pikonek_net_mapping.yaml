@@ -1,0 +1,14 @@
+network_config:
+- type: interface
+  name: eth1
+  use_dhcp: false
+  is_wan: false
+  hotplug: true
+  addresses:
+    -
+      ip_netmask: 10.0.0.1/24
+-
+  type: interface
+  name: eth0
+  use_dhcp: true
+  is_wan: true

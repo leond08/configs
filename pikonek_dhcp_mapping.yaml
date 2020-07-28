@@ -1,0 +1,36 @@
+addn_hosts:
+- host: /etc/blocked/adware
+- host: /etc/blocked/pisokonekblockedlist
+- host: /etc/blocked/porn
+- host: /etc/blocked/social
+- host: /etc/blocked/gambling
+- host: /etc/blocked/fakenews
+- host: /etc/pikonek.host
+bogus_priv: true
+conf_file: /etc/blocked/domains
+dhcp_authoritative: true
+dhcp_option:
+- ipaddress: 10.0.0.1
+  option: 3
+dhcp_range:
+- cidr: 24
+  end: 10.0.0.200
+  interface: eth1
+  lease_time: 24h
+  start: 10.0.0.100
+domain: portal.pikonek
+domain_needed: true
+hosts:
+- ip: 10.0.0.1
+  name: portal.pikonek
+interface:
+- name: eth1
+mac_blocked_list:
+- mac: 11:22:33:44:55:66
+- mac: 11:22:33:44:55:77
+name_server:
+- ip: 8.8.8.8
+- ip: 8.8.4.4
+no_hosts: false
+no_resolv: false
+resolv_file: /etc/pikonek.resolv
