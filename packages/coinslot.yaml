@@ -8,3 +8,5 @@ coins:
 - currency: 10
   time: 2
   unit: hour
+gpio_coin: 3
+gpio_relay: 5

@@ -13,6 +13,7 @@ init_fw_script: init.d/S70pikonekcaptivefw
 repository: https://github.com/leond08/packages.git
 exec: /etc/init.d/S70pikonekcaptive
 exec_fw: /etc/init.d/S70pikonekcaptivefw
+enable_captive_bandwidth: true
 interface:
 - name: eth1
 fw_destroy:
