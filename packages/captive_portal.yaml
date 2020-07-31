@@ -1,58 +1,58 @@
-name: Captive Portal
-port: 5001
-voucher: true
-fw_mark_authenticated: 99
-coinslot: true
-default_download: 1000 
+coinslot: false
+default_download: 1000
 default_upload: 1000
 directory: packages/captive/
-install_directory: /etc/pikonek/packages/captive/
 enable: true
-init_script: init.d/S70pikonekcaptive
-init_fw_script: init.d/S70pikonekcaptivefw
-repository: https://github.com/leond08/packages.git
+enableReinitialize: true
+enable_captive_bandwidth: true
 exec: /etc/init.d/S70pikonekcaptive
 exec_fw: /etc/init.d/S70pikonekcaptivefw
-enable_captive_bandwidth: true
-interface:
-- name: eth1
 fw_destroy:
-- command:  -t mangle -F CAPTIVE_OUTGOING
-- command:  -t mangle -F CAPTIVE_INCOMING
-- command:  -t mangle -X CAPTIVE_OUTGOING
-- command:  -t mangle -X CAPTIVE_INCOMING
-- command:  -t nat -F CAPTIVE_OUTGOING
-- command:  -t nat -X CAPTIVE_OUTGOING
-- command:  -t filter -F CAPTIVE_TO_INTERNET
-- command:  -t filter -F CAPTIVE_AUTHENTICATED
-- command:  -t filter -X CAPTIVE_TO_INTERNET
-- command:  -t filter -X CAPTIVE_AUTHENTICATED
+- command: -t mangle -F CAPTIVE_OUTGOING
+- command: -t mangle -F CAPTIVE_INCOMING
+- command: -t mangle -X CAPTIVE_OUTGOING
+- command: -t mangle -X CAPTIVE_INCOMING
+- command: -t nat -F CAPTIVE_OUTGOING
+- command: -t nat -X CAPTIVE_OUTGOING
+- command: -t filter -F CAPTIVE_TO_INTERNET
+- command: -t filter -F CAPTIVE_AUTHENTICATED
+- command: -t filter -X CAPTIVE_TO_INTERNET
+- command: -t filter -X CAPTIVE_AUTHENTICATED
 fw_init:
   create_new_chain:
-  - command:  -t mangle -N CAPTIVE_INCOMING
-  - command:  -t mangle -N CAPTIVE_OUTGOING
-  - command:  -t nat -N CAPTIVE_OUTGOING
-  - command:  -t filter -N CAPTIVE_TO_INTERNET
-  - command:  -t filter -N CAPTIVE_AUTHENTICATED
+  - command: -t mangle -N CAPTIVE_INCOMING
+  - command: -t mangle -N CAPTIVE_OUTGOING
+  - command: -t nat -N CAPTIVE_OUTGOING
+  - command: -t filter -N CAPTIVE_TO_INTERNET
+  - command: -t filter -N CAPTIVE_AUTHENTICATED
   create_rule:
-  - command:  -t nat -I CAPTIVE_OUTGOING 1 -m mark --mark $FW_MARK_AUTHENTICATED
-      -j RETURN
-  - command:  -t nat -A CAPTIVE_OUTGOING -j ACCEPT
-  - command:  -t filter -A CAPTIVE_TO_INTERNET -m conntrack --ctstate INVALID
-      -j DROP
-  - command:  -t filter -A CAPTIVE_TO_INTERNET -m mark --mark $FW_MARK_AUTHENTICATED
+  - command: -t nat -I CAPTIVE_OUTGOING 1 -m mark --mark $FW_MARK_AUTHENTICATED -j
+      RETURN
+  - command: -t nat -A CAPTIVE_OUTGOING -j ACCEPT
+  - command: -t filter -A CAPTIVE_TO_INTERNET -m conntrack --ctstate INVALID -j DROP
+  - command: -t filter -A CAPTIVE_TO_INTERNET -m mark --mark $FW_MARK_AUTHENTICATED
       -j CAPTIVE_AUTHENTICATED
-  - command:  -t filter -A CAPTIVE_TO_INTERNET -j REJECT --reject-with icmp-port-unreachable
-  - command:  -t filter -A CAPTIVE_AUTHENTICATED -m conntrack --ctstate RELATED,ESTABLISHED
+  - command: -t filter -A CAPTIVE_TO_INTERNET -j REJECT --reject-with icmp-port-unreachable
+  - command: -t filter -A CAPTIVE_AUTHENTICATED -m conntrack --ctstate RELATED,ESTABLISHED
       -j ACCEPT
-  - command:  -t filter -A CAPTIVE_AUTHENTICATED -m mark --mark $FW_MARK_AUTHENTICATED
+  - command: -t filter -A CAPTIVE_AUTHENTICATED -m mark --mark $FW_MARK_AUTHENTICATED
       -j ACCEPT
-  - command:  -t filter -A CAPTIVE_AUTHENTICATED -j REJECT --reject-with icmp-port-unreachable
+  - command: -t filter -A CAPTIVE_AUTHENTICATED -j REJECT --reject-with icmp-port-unreachable
   create_rule_for_interface:
-  - command:  -t mangle -A PREROUTING -i $gw_interface -j CAPTIVE_OUTGOING
-  - command:  -t nat -A CAPTIVE_OUTGOING -i $gw_interface -p tcp -m tcp --dport 80 -j DNAT
-      --to-destination $gw_address
-  - command:  -t mangle -A POSTROUTING -o $gw_interface -j CAPTIVE_INCOMING
-  - command:  -t nat -A PREROUTING -i $gw_interface -j CAPTIVE_OUTGOING
-  - command:  -t filter -A FORWARD -i $gw_interface -j CAPTIVE_TO_INTERNET
-
+  - command: -t mangle -A PREROUTING -i $gw_interface -j CAPTIVE_OUTGOING
+  - command: -t nat -A CAPTIVE_OUTGOING -i $gw_interface -p tcp -m tcp --dport 80
+      -j DNAT --to-destination $gw_address
+  - command: -t mangle -A POSTROUTING -o $gw_interface -j CAPTIVE_INCOMING
+  - command: -t nat -A PREROUTING -i $gw_interface -j CAPTIVE_OUTGOING
+  - command: -t filter -A FORWARD -i $gw_interface -j CAPTIVE_TO_INTERNET
+fw_mark_authenticated: 99
+init_fw_script: init.d/S70pikonekcaptivefw
+init_script: init.d/S70pikonekcaptive
+install_directory: /etc/pikonek/packages/captive/
+interface:
+- name: eth1
+- name: eth0.10
+name: Captive Portal
+port: 5001
+repository: https://github.com/leond08/packages.git
+voucher: true
