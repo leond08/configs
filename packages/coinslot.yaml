@@ -1,12 +1,16 @@
 coins:
-- currency: 1
-  time: 6
-  unit: minutes
 - currency: 5
+  pulse: 5
   time: 1
   unit: hour
+- currency: 1
+  pulse: 1
+  time: 6
+  unit: minute
 - currency: 10
+  pulse: 10
   time: 2
   unit: hour
-gpio_coin: 3
-gpio_relay: 5
+enable_gpio_relay: true
+gpio_coin: 2
+gpio_relay: 3
