@@ -51,7 +51,6 @@ init_script: init.d/S70pikonekcaptive
 install_directory: /etc/pikonek/packages/captive/
 interface:
 - name: eth1
-- name: eth0.10
 name: Captive Portal
 port: 5001
 repository: https://github.com/leond08/packages.git
