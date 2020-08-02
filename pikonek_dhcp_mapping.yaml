@@ -1,11 +1,11 @@
 addn_hosts:
-- host: /etc/blocked/adware
-- host: /etc/blocked/pisokonekblockedlist
-- host: /etc/blocked/porn
-- host: /etc/blocked/social
-- host: /etc/blocked/gambling
-- host: /etc/blocked/fakenews
-- host: /etc/pikonek.host
+- host: /etc/pikonek/blocked/adware
+- host: /etc/pikonek/blocked/pisokonekblockedlist
+- host: /etc/pikonek/blocked/porn
+- host: /etc/pikonek/blocked/social
+- host: /etc/pikonek/blocked/gambling
+- host: /etc/pikonek/blocked/fakenews
+- host: /etc/pikonek/configs/pikonek.host
 bogus_priv: true
 conf_file: /etc/blocked/domains
 dhcp_authoritative: true
@@ -43,7 +43,7 @@ name_server:
 - ip: 8.8.4.4
 no_hosts: false
 no_resolv: false
-resolv_file: /etc/pikonek.resolv
+resolv_file: /etc/pikonek/configs/pikonek.resolv
 static_mapping:
 - host: Falcon
   interface: eth1
