@@ -1,11 +1,11 @@
 addn_hosts:
-- host: /etc/pikonek/blocked/adware
 - host: /etc/pikonek/blocked/pisokonekblockedlist
-- host: /etc/pikonek/blocked/porn
-- host: /etc/pikonek/blocked/social
-- host: /etc/pikonek/blocked/gambling
-- host: /etc/pikonek/blocked/fakenews
 - host: /etc/pikonek/configs/pikonek.host
+- host: /etc/pikonek/blocked/fakenews
+- host: /etc/pikonek/blocked/social
+- host: /etc/pikonek/blocked/adware
+- host: /etc/pikonek/blocked/porn
+- host: /etc/pikonek/blocked/gambling
 bogus_priv: true
 conf_file: /etc/blocked/domains
 dhcp_authoritative: true
