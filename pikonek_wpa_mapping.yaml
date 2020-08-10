@@ -1,0 +1,5 @@
+mode: 2
+ssid: PiKonek
+key_mgmt: WPA-PSK
+psk: pikonek
+interface: wlan0

@@ -7,9 +7,10 @@ network_config:
   type: interface
   use_dhcp: false
 - addresses:
-  - ip_netmask: 10.0.1.1/24
+  - ip_netmask: 192.168.0.1/24
   hotplug: true
   is_wan: false
+  is_ap: true
   name: wlan0
   type: interface
   use_dhcp: false
@@ -17,11 +18,3 @@ network_config:
   name: eth0
   type: interface
   use_dhcp: true
-- addresses:
-  - ip_netmask: 10.0.2.1/24
-  device: eth0
-  is_wan: false
-  type: vlan
-  use_dhcp: true
-  use_dhcpv6: false
-  vlan_id: 10
