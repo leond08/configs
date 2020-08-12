@@ -4,6 +4,7 @@ addn_hosts:
 bogus_priv: true
 dhcp_authoritative: true
 domain: pi.konek
+bind_interfaces: true
 domain_needed: true
 no_hosts: false
 no_resolv: false
