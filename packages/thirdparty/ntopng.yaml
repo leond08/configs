@@ -8,7 +8,4 @@ uninstall_script: apt purge --yes ntopng
 description: High-Speed Web-based Traffic Analysis and Flow 
 config_file: /etc/ntopng.conf
 log_file: /var/log/ntopng/ntopng.log
-additional_packages:
-  - name: redis-server
 additional_properties:
-  command:
