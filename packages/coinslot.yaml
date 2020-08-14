@@ -14,3 +14,5 @@ coins:
 enable_gpio_relay: true
 gpio_coin: 2
 gpio_relay: 3
+name: PiKonek Coinslot
+id: pikonekCoinslot

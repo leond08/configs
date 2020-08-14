@@ -1,0 +1,10 @@
+listen:
+  - interface: eth0
+port: 3000
+init_script: /etc/init.d/darkstat
+name: darkstat
+description: A packet sniffer that runs as a background process, gathers all sorts of statistics about network usage, and serves them over HTTP. 
+config_file: /etc/darkstat/init.cfg
+log_file: 
+additional_packages: 
+additional_properties:
