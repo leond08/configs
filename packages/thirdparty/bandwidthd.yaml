@@ -1,0 +1,30 @@
+additional_properties:
+- config:
+  - promiscuous: false
+  - output_cdf: true
+  - recover_cdf: true
+  - meta_refresh: 150
+  - subnet:
+    - ip_netmask: 0.0.0.0/0
+config_file: /etc/bandwidthd/bandwidthd.conf
+description: BandwidthD tracks usage of TCP/IP network subnets and builds html files
+  with graphs to display utilization.
+init_script: /etc/init.d/bandwidthd
+install_script: apt-get install --yes bandwidthd
+installer_type: apt
+listen:
+- interface: eth0
+log_file: null
+name: bandwidthd
+package_file:
+  configs:
+  - copy_path: /etc/pikonek/configs/bandwidthd.conf
+    install_path: /etc/bandwidthd/bandwidthd.conf
+  scripts:
+  - copy_path: /etc/pikonek/scripts/bandwidthd
+    install_path: /etc/init.d/bandwidthd
+port: 667
+status: true
+uninstall_script:
+- apt purge --yes bandwidthd
+- apt --yes autoremove

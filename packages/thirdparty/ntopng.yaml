@@ -16,7 +16,7 @@ package_file:
   - copy_path: /etc/pikonek/scripts/ntopng
     install_path: /etc/init.d/ntopng
 port: 3000
-status: true
+status: false
 uninstall_script:
 - apt purge --yes ntopng
 - apt --yes autoremove
