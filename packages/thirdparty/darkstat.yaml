@@ -1,10 +1,23 @@
-listen:
-  - interface: eth0
-port: 3000
-init_script: /etc/init.d/darkstat
-name: darkstat
-description: A packet sniffer that runs as a background process, gathers all sorts of statistics about network usage, and serves them over HTTP. 
+additional_properties: null
 config_file: /etc/darkstat/init.cfg
-log_file: 
-additional_packages: 
-additional_properties:
+description: A packet sniffer that runs as a background process, gathers all sorts
+  of statistics about network usage, and serves them over HTTP.
+init_script: /etc/init.d/darkstat
+install_script: apt-get install --yes darkstat
+installer_type: apt
+listen:
+- interface: eth0
+log_file: null
+name: darkstat
+package_file:
+  configs:
+  - copy_path: /etc/pikonek/configs/init.cfg
+    install_path: /etc/darkstat/init.cfg
+  scripts:
+  - copy_path: /etc/pikonek/scripts/darkstat
+    install_path: /etc/init.d/darkstat
+port: 667
+status: true
+uninstall_script:
+- apt purge --yes darkstat
+- apt --yes autoremove

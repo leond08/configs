@@ -1,20 +1,22 @@
-listen:
-port: 3000
+additional_properties: null
+config_file: /etc/ntopng.conf
+description: High-Speed Web-based Traffic Analysis and Flow
+firewall_rule: null
 init_script: /etc/init.d/ntopng
+install_script: apt-get install --yes ntopng
+installer_type: apt
+listen: null
+log_file: /var/log/ntopng/ntopng.log
 name: ntopng
 package_file:
   configs:
-    - copy_path: /etc/pikonek/configs/ntopng.conf
-      install_path: /etc/ntopng.conf
+  - copy_path: /etc/pikonek/configs/ntopng.conf
+    install_path: /etc/ntopng.conf
   scripts:
-    - copy_path: /etc/pikonek/scripts/ntopng
-      install_path: /etc/init.d/ntopng
-install_script: apt-get install --yes ntopng
-uninstall_script: 
-  - apt purge --yes ntopng 
-  - apt --yes autoremove
-description: High-Speed Web-based Traffic Analysis and Flow 
-config_file: /etc/ntopng.conf
-log_file: /var/log/ntopng/ntopng.log
-firewall_rule:
-additional_properties:
+  - copy_path: /etc/pikonek/scripts/ntopng
+    install_path: /etc/init.d/ntopng
+port: 3000
+status: true
+uninstall_script:
+- apt purge --yes ntopng
+- apt --yes autoremove
