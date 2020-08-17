@@ -3,7 +3,7 @@ id: pikonekCaptive
 default_download: 1000
 default_upload: 1000
 directory: packages/captive/
-enable: true
+enable: false
 enableReinitialize: true
 enable_captive_bandwidth: true
 exec: /etc/init.d/S70pikonekcaptive
