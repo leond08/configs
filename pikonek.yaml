@@ -12,4 +12,3 @@ startup_service:
  - START_BANDWIDTHD: no
  - START_NTOPNG: no
  - START_PIKONEK: yes
- 
