@@ -1,0 +1,11 @@
+name: Pikonek Core
+port: 5000
+firewall_rule:
+  - -t nat -A POSTROUTING -o $gw_interface -j MASQUERADE
+startup_service:
+ - START_CAPTIVE: yes
+ - START_CAPTIVE_FIREWALL: yes
+ - START_DARKSTAT: no
+ - START_BANDWIDTHD: no
+ - START_NTOPNG: no
+ - START_PIKONEK: yes
