@@ -11,3 +11,4 @@ no_resolv: false
 resolv_file: /etc/pikonek/configs/pikonek.resolv
 ipset:
 - www.google.com
+- google.com
