@@ -24,7 +24,7 @@ package_file:
   - copy_path: /etc/pikonek/scripts/bandwidthd
     install_path: /etc/init.d/bandwidthd
 port: 667
-status: true
+status: false
 uninstall_script:
 - apt purge --yes bandwidthd
 - apt --yes autoremove

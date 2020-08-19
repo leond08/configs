@@ -17,7 +17,7 @@ package_file:
   - copy_path: /etc/pikonek/scripts/darkstat
     install_path: /etc/init.d/darkstat
 port: 667
-status: true
+status: false
 uninstall_script:
 - apt purge --yes darkstat
 - apt --yes autoremove
