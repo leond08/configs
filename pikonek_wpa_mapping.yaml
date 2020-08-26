@@ -10,3 +10,4 @@
   key_mgmt: WPA-PSK
   psk: pikonek
   interface: wlan1
+  
