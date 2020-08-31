@@ -6,9 +6,9 @@ firewall_rule:
   fw_destroy:
     - -t nat -D POSTROUTING -o $wan_interface -j MASQUERADE
 startup_service:
- - START_CAPTIVE: yes
- - START_CAPTIVE_FIREWALL: yes
- - START_DARKSTAT: no
- - START_BANDWIDTHD: no
- - START_NTOPNG: no
- - START_PIKONEK: yes
+ - START_CAPTIVE: true
+ - START_CAPTIVE_FIREWALL: true
+ - START_DARKSTAT: false
+ - START_BANDWIDTHD: false
+ - START_NTOPNG: false
+ - START_PIKONEK: true
