@@ -53,6 +53,8 @@ init_fw_script: init.d/S70pikonekcaptivefw
 init_script: init.d/S70pikonekcaptive
 install_directory: /etc/pikonek/packages/captive/
 log_file: /var/log/captive.log
+interface:
+- name: eth1
 name: Captive Portal
 port: 5001
 repository: https://github.com/leond08/packages.git
