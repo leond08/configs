@@ -1,11 +1,6 @@
-coinslot: false
 id: pikonekCaptive
-default_download: 1000
-default_upload: 1000
 directory: packages/captive/
 enable: true
-enableReinitialize: true
-enable_captive_bandwidth: true
 exec: /etc/init.d/S70pikonekcaptive
 exec_fw: /etc/init.d/S70pikonekcaptivefw
 fw_destroy:
@@ -53,8 +48,14 @@ init_fw_script: init.d/S70pikonekcaptivefw
 init_script: init.d/S70pikonekcaptive
 install_directory: /etc/pikonek/packages/captive/
 log_file: /var/log/captive.log
+interface:
+- name: lan1
+  default_download: 0
+  enable_captive_bandwidth: true
+  default_upload: 0
+  coinslot: false
+  voucher: true
 name: Captive Portal
 port: 5001
 repository: https://github.com/leond08/packages.git
-voucher: true
 description: Captive Portal for Pikonek
