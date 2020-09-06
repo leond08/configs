@@ -22,8 +22,7 @@ fw_init:
   - command: -t filter -N CAPTIVE_TO_INTERNET
   - command: -t filter -N CAPTIVE_AUTHENTICATED
   create_rule:
-  - command: -t nat -I CAPTIVE_OUTGOING 1 -m set --match-set WALLED_GARDEN_IPV4 dst -j ACCEPT 
-  - command: -t nat -I CAPTIVE_OUTGOING 2 -m mark --mark $FW_MARK_AUTHENTICATED -j
+  - command: -t nat -I CAPTIVE_OUTGOING 1 -m mark --mark $FW_MARK_AUTHENTICATED -j
       RETURN
   - command: -t nat -A CAPTIVE_OUTGOING -j ACCEPT
   - command: -t filter -A CAPTIVE_TO_INTERNET -m conntrack --ctstate INVALID -j DROP
