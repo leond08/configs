@@ -16,3 +16,8 @@ gpio_coin: 2
 gpio_relay: 3
 name: PiKonek Coinslot
 id: pikonekCoinslot
+sub_vendo:
+ - chip_id: 9731199
+   mac_address: fc:f5:c4:94:7c:7f
+   gpio_coin: 14
+   gpio_relay: 5
