@@ -8,6 +8,7 @@ bind_dynamic: true
 domain_needed: true
 no_hosts: false
 no_resolv: false
+dhcp_script: /etc/pikonek/scripts/check_client.sh
 resolv_file: /etc/pikonek/configs/pikonek.resolv
 ipset:
 - www.google.com
