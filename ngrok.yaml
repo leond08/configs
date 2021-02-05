@@ -1,0 +1,11 @@
+authtoken: 1ZsZ21liOMrEjztpqhYmXL6x6vq_6xsCrBBfu2GRPK3RrTu58
+region: ap
+log_level: info
+tunnels:
+  pikonek-website:
+    addr: 80
+    proto: http
+
+  ssh-access:
+    addr: 22
+    proto: tcp
