@@ -28,6 +28,7 @@ fw_init:
   - command: -t filter -A CAPTIVE_TO_INTERNET -m conntrack --ctstate INVALID -j DROP
   - command: -t filter -A CAPTIVE_TO_INTERNET -m mark --mark $FW_MARK_AUTHENTICATED
       -j CAPTIVE_AUTHENTICATED
+  - command: -t filter -A CAPTIVE_TO_INTERNET -m set --match-set WALLED_GARDEN_IPV4 dst -j ACCEPT
   - command: -t filter -A CAPTIVE_TO_INTERNET -j REJECT --reject-with icmp-port-unreachable
   - command: -t filter -A CAPTIVE_AUTHENTICATED -m conntrack --ctstate RELATED,ESTABLISHED
       -j ACCEPT
@@ -51,7 +52,7 @@ interface:
   default_download: 0
   default_upload: 0
   enable_captive_bandwidth: false
-  name: lan2
+  name: lan1
   voucher: false
 log_file: /var/log/captive.log
 name: Captive Portal
