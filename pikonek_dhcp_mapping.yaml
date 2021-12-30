@@ -1,15 +1,39 @@
 addn_hosts:
 - host: /etc/pikonek/blocked/pisokonekblockedlist
 - host: /etc/pikonek/configs/pikonek.host
+- host: /etc/pikonek/blocked/porn
+- host: /etc/pikonek/blocked/adware
+bind_dynamic: true
 bogus_priv: true
 dhcp_authoritative: true
+dhcp_option:
+- interface: lan2
+  ipaddress: 10.0.0.1
+  option: 3
+dhcp_range:
+- end: 10.0.0.254
+  interface: lan2
+  lease_time: infinite
+  start: 10.0.0.2
+  subnet: 255.255.255.0
+dhcp_script: /etc/pikonek/scripts/check_client.sh
 domain: pi.konek
-bind_dynamic: true
 domain_needed: true
+hosts:
+- ip: 172.168.0.1
+  name: pi.konek
+interface:
+- name: lan2
+ipset: []
+mac_blocked_list: []
+name_server:
+- ip: 8.8.8.8
+- ip: 8.8.4.4
 no_hosts: false
 no_resolv: false
-dhcp_script: /etc/pikonek/scripts/check_client.sh
 resolv_file: /etc/pikonek/configs/pikonek.resolv
-ipset:
-- www.google.com
-- google.com
+static_mapping:
+- host: MyHuawei
+  interface: lan1
+  ip: 10.0.0.254
+  mac: 30:a1:fa:b5:64:56

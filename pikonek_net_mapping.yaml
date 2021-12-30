@@ -1,29 +1,23 @@
 network_config:
+- hotplug: false
+  hwaddr: b8:27:eb:a4:08:c3
+  is_wan: true
+  name: wan0
+  type: interface
+  use_dhcp: true
 - addresses:
   - ip_netmask: 10.0.0.1/24
   hotplug: true
+  hwaddr: 00:e0:4c:68:12:31
   is_wan: false
-  name: eth1
-  type: interface
-  use_dhcp: false
-- addresses:
-  - ip_netmask: 192.168.0.2/24
-  hotplug: true
-  is_wan: false
-  access_point: true
-  name: wlan0
-  type: interface
-  use_dhcp: false
-- is_wan: true
-  name: eth0
+  name: lan1
   type: interface
   use_dhcp: true
--
-  type: vlan
-  device: eth0
-  vlan_id: 10
+- addresses:
+  - ip_netmask: 10.0.0.1/24
+  hotplug: true
+  hwaddr: 00:e0:4c:68:27:41
+  is_wan: false
+  name: lan2
+  type: interface
   use_dhcp: false
-  use_dhcpv6: false
-  addresses:
-  -
-    ip_netmask: 192.0.10.1/24

@@ -1,4 +1,4 @@
-id: pikonekCaptive
+description: Captive Portal for Pikonek
 directory: packages/captive/
 enable: true
 exec: /etc/init.d/S70pikonekcaptive
@@ -28,7 +28,6 @@ fw_init:
   - command: -t filter -A CAPTIVE_TO_INTERNET -m conntrack --ctstate INVALID -j DROP
   - command: -t filter -A CAPTIVE_TO_INTERNET -m mark --mark $FW_MARK_AUTHENTICATED
       -j CAPTIVE_AUTHENTICATED
-  - command: -t filter -A CAPTIVE_TO_INTERNET -m set --match-set WALLED_GARDEN_IPV4 dst -j ACCEPT
   - command: -t filter -A CAPTIVE_TO_INTERNET -j REJECT --reject-with icmp-port-unreachable
   - command: -t filter -A CAPTIVE_AUTHENTICATED -m conntrack --ctstate RELATED,ESTABLISHED
       -j ACCEPT
@@ -43,18 +42,18 @@ fw_init:
   - command: -t nat -A PREROUTING -i $gw_interface -j CAPTIVE_OUTGOING
   - command: -t filter -A FORWARD -i $gw_interface -j CAPTIVE_TO_INTERNET
 fw_mark_authenticated: 99
+id: pikonekCaptive
 init_fw_script: init.d/S70pikonekcaptivefw
 init_script: init.d/S70pikonekcaptive
 install_directory: /etc/pikonek/packages/captive/
-log_file: /var/log/captive.log
 interface:
-- name: lan1
+- coinslot: true
   default_download: 0
-  enable_captive_bandwidth: true
   default_upload: 0
-  coinslot: false
-  voucher: true
+  enable_captive_bandwidth: false
+  name: lan2
+  voucher: false
+log_file: /var/log/captive.log
 name: Captive Portal
 port: 5001
 repository: https://github.com/leond08/packages.git
-description: Captive Portal for Pikonek

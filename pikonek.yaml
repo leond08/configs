@@ -1,14 +1,24 @@
-name: Pikonek Core
-port: 5000
+architecture: armhf
 firewall_rule:
-  fw_init:
-    - -t nat -A POSTROUTING -o $wan_interface -j MASQUERADE
   fw_destroy:
-    - -t nat -D POSTROUTING -o $wan_interface -j MASQUERADE
+  - -t nat -D POSTROUTING -o $wan_interface -j MASQUERADE
+  fw_init:
+  - -t nat -A POSTROUTING -o $wan_interface -j MASQUERADE
+name: Pikonek Core
+os: Ubuntu
+port: 5000
+services:
+- keep_alive: 5
+  name: mqtt
+  password: null
+  port: 1883
+  tls: false
+  username: null
 startup_service:
- - START_CAPTIVE: true
- - START_CAPTIVE_FIREWALL: true
- - START_DARKSTAT: false
- - START_BANDWIDTHD: false
- - START_NTOPNG: false
- - START_PIKONEK: true
+- START_CAPTIVE: true
+- START_CAPTIVE_FIREWALL: true
+- START_DARKSTAT: false
+- START_BANDWIDTHD: false
+- START_NTOPNG: false
+- START_PIKONEK: true
+wan_interface: wan0

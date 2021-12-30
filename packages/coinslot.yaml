@@ -1,23 +1,23 @@
 coins:
 - currency: 5
   pulse: 5
-  time: 1
+  time: 2
   unit: hour
 - currency: 1
   pulse: 1
-  time: 6
+  time: 15
   unit: minute
 - currency: 10
   pulse: 10
-  time: 2
+  time: 4
   unit: hour
 enable_gpio_relay: true
 gpio_coin: 2
 gpio_relay: 3
-name: PiKonek Coinslot
 id: pikonekCoinslot
+name: PiKonek Coinslot
 sub_vendo:
- - chip_id: 9731199
-   mac_address: fc:f5:c4:94:7c:7f
-   gpio_coin: 14
-   gpio_relay: 5
+- chip_id: 9731199
+  gpio_coin: 14
+  gpio_relay: 5
+  mac_address: fc:f5:c4:94:7c:7f
